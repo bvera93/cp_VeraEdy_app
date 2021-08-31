@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "150710890397",
+    "project_id": "samuwingsffood",
+    "storage_bucket": "samuwingsffood.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150710890397:android:f02110c85e695e777c4974",
+        "android_client_info": {
+          "package_name": "com.samuwingsfood.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150710890397-s75udh2vv18rshk7quv13evolbrua8st.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7nS8jdB2_VdrBnxULfTLG00hsJ4--5MA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150710890397-s75udh2vv18rshk7quv13evolbrua8st.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

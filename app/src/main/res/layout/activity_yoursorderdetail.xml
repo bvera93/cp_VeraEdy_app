@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_orange"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_38sdp"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/light_orange" />
+
+        <TextView
+            fontPath="@string/font_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Resumen de pedido"
+            android:textColor="@color/light_orange"
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="MissingPrefix" />
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/rlScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/tvProceedToPaymnet"
+        android:layout_below="@id/rlTitle"
+        android:layout_marginBottom="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitleOrderSummery"
+                fontPath="@string/font_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:text="Resumen de pedido"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="MissingPrefix" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOrderItemFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp">
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Cod. Cupón"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix" />
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Seleccione código promocional"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:textColor="@color/light_orange"
+                            android:textSize="@dimen/_10ssp"
+                            android:id="@+id/tvbtnPromocode"
+                            tools:ignore="MissingPrefix" />
+                    </FrameLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp">
+
+                        <EditText
+                            android:id="@+id/edPromocode"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:background="@drawable/bg_editfield"
+                            android:hint="Ingrese código promocional"
+                            android:gravity="center_vertical"
+                            fontPath="@string/font_medium"
+                            android:layout_toLeftOf="@id/tvApply"
+                            android:inputType="textPersonName"
+                            android:imeOptions="actionSearch"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                        <TextView
+                            android:id="@+id/tvApply"
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:background="@drawable/bg_editfield"
+                            android:backgroundTint="@color/light_orange"
+                            android:gravity="center"
+                            android:layout_alignParentRight="true"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:text="Aplicar"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix,UnusedAttribute" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPaymentSummerDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rvOrderItemFood"
+                android:layout_marginLeft="@dimen/_10sdp"
+
+                android:layout_marginRight="@dimen/_10sdp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitlePaymentSummery"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Resumen de pago"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Pedido Total"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvOrderTotalPrice"
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            tools:text="$95"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp">
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Impuesto"
+                            android:id="@+id/tvTitleTex"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvOrderTaxPrice"
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            tools:text="$7"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_10sdp">
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Gasto de envio"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvOrderDeliveryCharge"
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            tools:text="$100"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </FrameLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:paddingTop="@dimen/_3sdp"
+                        android:id="@+id/rlOffer">
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Descuento por oferta"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            android:id="@+id/tvTitleDic"
+                            tools:ignore="MissingPrefix" />
+                        <TextView
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            tools:text="GET50"
+                            android:textColor="@color/light_orange"
+                            android:textSize="@dimen/_8ssp"
+                            android:id="@+id/tvPromoCodeApply"
+                            android:layout_below="@+id/tvTitleDic"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvDiscountOffer"
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            tools:text="$100"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp">
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:text="Monto Total"
+                            android:textColor="@color/light_orange"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix" />
+
+                        <TextView
+                            android:id="@+id/tvOrderTotalCharge"
+                            fontPath="@string/font_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            tools:text="$100"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix" />
+                    </FrameLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/llPayment"
+                android:layout_marginTop="@dimen/_10sdp"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_weight="1"
+                    android:id="@+id/cvDelivery"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_5sdp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ivMonay"
+                            android:layout_width="48dp"
+                            android:layout_height="44dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/ic_vechicle" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Delivery"
+                            fontPath="@string/font_bold"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:id="@+id/tvTitle"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/ivMonay"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_weight="1"
+                    android:id="@+id/cvPickup"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_10sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="106dp">
+
+                        <ImageView
+                            android:id="@+id/ivCraditCard"
+                            android:layout_width="45dp"
+                            android:layout_height="46dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:src="@drawable/ic_gift" />
+
+                        <TextView
+                            fontPath="@string/font_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ivCraditCard"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:text="Recoger"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="MissingPrefix" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cvDeliveryAddress"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitleDeliveryAddress"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="@string/delivery_address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield">
+                        <TextView
+                            android:id="@+id/edAddress"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/black"
+                            android:hint="Dirección"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvBuilding"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Departamento / Nro. Piso"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:padding="@dimen/_10sdp">
+
+
+                        <EditText
+                            android:id="@+id/edBuilding"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            android:background="@android:color/transparent"
+                            android:editable="false"
+                            android:hint="Departamento / Nro. Piso"
+                            android:imeOptions="actionGo"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvLandmark"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Referencia"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp">
+
+
+                        <EditText
+                            android:id="@+id/edLandmark"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:editable="false"
+                            android:background="@android:color/transparent"
+                            android:hint="Referencia"
+                            android:inputType="textPersonName"
+                            android:imeOptions="actionGo"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvPincode"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Pincode"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp">
+
+
+                        <EditText
+                            android:id="@+id/edPinCode"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:hint="Pincode"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="@dimen/_10sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        fontPath="@string/font_bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:text="Notas"
+                        android:gravity="start"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/llDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_70sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/edNotes"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_2sdp"
+                            android:background="@android:color/transparent"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:textAlignment="viewStart"
+                            android:hint="Escribir notas"
+                            android:paddingLeft="@dimen/_5sdp"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+           <!-- <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cvBuilding"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvBuilding"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Building"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+                    &lt;!&ndash; <TextView
+                         fontPath="@string/font_bold"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/_10sdp"
+                         android:layout_marginTop="@dimen/_5sdp"
+                         android:layout_marginRight="@dimen/_10sdp"
+                         android:layout_marginBottom="@dimen/_10sdp"
+                         android:text="@string/message"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="@dimen/_12ssp"
+                         tools:ignore="MissingPrefix" />&ndash;&gt;
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp">
+
+                        &lt;!&ndash; <ImageView
+                             android:layout_width="@dimen/_20sdp"
+                             android:layout_height="@dimen/_20sdp"
+                             android:layout_gravity="center_vertical"
+                             android:layout_marginLeft="@dimen/_10sdp"
+                             android:src="@drawable/ic_location"
+                             android:id="@+id/ivLocation"
+                             app:tint="@color/light_orange" />&ndash;&gt;
+
+                        <EditText
+                            android:id="@+id/edBuilding"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:editable="false"
+                            android:background="@android:color/transparent"
+                            android:hint="Door / Flat no."
+                            android:imeOptions="actionGo"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="5dp"
+                android:id="@+id/cvLandmark"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvLandmark"
+                        fontPath="@string/font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="Landmark"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="MissingPrefix" />
+
+                    &lt;!&ndash; <TextView
+                         fontPath="@string/font_bold"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/_10sdp"
+                         android:layout_marginTop="@dimen/_5sdp"
+                         android:layout_marginRight="@dimen/_10sdp"
+                         android:layout_marginBottom="@dimen/_10sdp"
+                         android:text="@string/message"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="@dimen/_12ssp"
+                         tools:ignore="MissingPrefix" />&ndash;&gt;
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:background="@drawable/bg_editfield"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp">
+
+                        &lt;!&ndash; <ImageView
+                             android:layout_width="@dimen/_20sdp"
+                             android:layout_height="@dimen/_20sdp"
+                             android:layout_gravity="center_vertical"
+                             android:layout_marginLeft="@dimen/_10sdp"
+                             android:src="@drawable/ic_location"
+                             android:id="@+id/ivLocation"
+                             app:tint="@color/light_orange" />&ndash;&gt;
+
+                        <EditText
+                            android:id="@+id/edLandmark"
+                            fontPath="@string/font_medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:editable="false"
+                            android:background="@android:color/transparent"
+                            android:hint="Landmark"
+                            android:inputType="textPersonName"
+                            android:imeOptions="actionGo"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10ssp"
+                            tools:ignore="MissingPrefix" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvProceedToPaymnet"
+        fontPath="@string/font_bold"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/bg_editfield"
+        android:backgroundTint="@color/light_orange"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_10sdp"
+        android:text="Proceder al pago"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        tools:ignore="MissingPrefix,UnusedAttribute" />
+
+
+</RelativeLayout>
